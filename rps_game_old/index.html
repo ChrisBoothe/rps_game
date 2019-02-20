@@ -10,13 +10,7 @@
     <body>
         <div>
             Rock Paper Scissors!
-		</div>
-		
-		<div id ="buttons">
-			<button id="rock">Rock</button>
-			<button id="paper">Paper</button>
-			<button id="scissors">Scissors</button>
-		</div>
+        </div>
         
         <div>
             <script>
@@ -33,7 +27,7 @@
 						return ("paper");
 					}
 					else {
-						return ("scissors");
+						return ("scissors");l
 					}
 
 				}
@@ -83,33 +77,34 @@
 				return score;
 				}
 
-				let playerSelection = "";
+
+				function game() {
+
+					let newScore = 0;	
+					
+					for (let i = 0; i<5; i++) {
+                   		newScore += playRound(playerSelection(), computerPlay());
+                   }
+
+				    if (newScore > 0){
+                  		return 'You Win!';
+              		} 
+			  		else if (newScore < 0){ 
+					  	return "You Lose!";
+              		}
+					else {
+						return "Tie Game";
+					}
+
+				}
+
+				let playerSelection = function () {
+					return window.prompt('type here your choice')
+					};
+
             	let computerSelection = computerPlay();
-
-
-				var rock = document.querySelector('#rock');
-				rock.addEventListener('click', () => {
-  					playerSelection = "rock";
-					playRound(playerSelection, computerPlay());
-				});
-
-				var paper = document.querySelector('#paper');
-				paper.addEventListener('click', () => {
-  					playerSelection = "paper";
-					playRound(playerSelection, computerPlay());
-				});
-
-				var scissors = document.querySelector('#scissors');
-				scissors.addEventListener('click', () => {
-  					playerSelection = "scissors";
-					playRound(playerSelection, computerPlay());
-				});
-
-			
-
-            	
                
-				
+				console.log(game());
 
 
             </script>    
